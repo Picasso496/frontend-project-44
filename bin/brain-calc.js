@@ -3,11 +3,11 @@ import readlineSync from 'readline-sync';
 
 export default function runBrainCalc() {
   console.log('Welcome to the Brain Games!');
-  console.log('What is the result of the expression?');
 
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-
+  console.log('What is the result of the expression?');
+  
   const operations = ['+', '-', '*'];
   const roundsCount = 3;
 
