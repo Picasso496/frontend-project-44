@@ -8,30 +8,28 @@ export default function runBrainCalc() {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  const totalQuestions = 3;
-  let correctAnswers = 0;
-
   const operations = ['+', '-', '*'];
+  const roundsCount = 3;
 
-  while (correctAnswers < totalQuestions) {
+  for (let i = 0; i < roundsCount; i++) {
     const op = operations[Math.floor(Math.random() * operations.length)];
-    let num1 = Math.floor(Math.random() * 50) + 1;
-    let num2 = Math.floor(Math.random() * 50) + 1;
+    const num1 = Math.floor(Math.random() * 50) + 1;
+    const num2 = Math.floor(Math.random() * 50) + 1;
 
-    const questionText = `${num1} ${op} ${num2}`;
-    const correctAnswer = eval(questionText);
+    const question = `${num1} ${op} ${num2}`;
+    const correctAnswer = eval(question).toString();
 
-    const userAnswer = readlineSync.question(`Question: ${questionText}\nYour answer: `).trim();
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ').trim();
 
-    if (userAnswer === String(correctAnswer)) {
-      console.log('Correct!');
-      correctAnswers += 1;
-    } else {
+    if (userAnswer !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
+
+    console.log('Correct!');
   }
 
   console.log(`Congratulations, ${userName}!`);
-}
+};
