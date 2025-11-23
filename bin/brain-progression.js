@@ -1,9 +1,9 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
 console.log('brain-progression');
 console.log('Welcome to the Brain Games!');
 
-// Спрашиваем имя
 const userName = readlineSync.question('May I have your name? ');
 console.log('Hello, ' + userName + '!');
 console.log('What number is missing in the progression?');
