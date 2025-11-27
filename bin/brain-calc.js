@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync'
 
 console.log('Welcome to the Brain Games!')
 
-const userName = readlineSync.question('May I have your name? ')
+const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}!`)
 
 console.log('What is the result of the expression?')
@@ -28,7 +28,8 @@ for (let i = 0; i < roundsCount; i++) {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
     console.log(`Let's try again, ${userName}!`)
     break
-  } else {
+  } 
+  else {
     console.log('Correct!')
     correctAnswers += 1
   }
